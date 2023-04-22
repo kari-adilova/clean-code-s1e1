@@ -8,10 +8,10 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput=document.getElementById("add-task-title");//Add a new task.
+var taskInput=document.getElementById("add-task__title");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-var todoTasksHolder=document.getElementById("todo-tasks");//ul of #todo-tasks
-var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
+var todoTasksHolder=document.querySelector(".todo-tasks");//ul of .todo-tasks
+var completedTasksHolder=document.querySelector(".completed-tasks");//.completed-tasks
 
 
 //New task list item
@@ -85,11 +85,11 @@ var editTask=function(){
     var editInput=listItem.querySelector('input[type=text]');
     var label=listItem.querySelector("label");
     var editBtn=listItem.querySelector(".edit-btn");
-    var containsClass=listItem.classList.contains("edit-mode");
-    //If class of the parent is .edit-mode
+    var containsClass=listItem.classList.contains("edited");
+    //If class of the parent is .edited
     if(containsClass){
 
-        //switch to .edit-mode
+        //switch to .edited
         //label becomes the inputs value.
         label.innerText=editInput.value;
         editBtn.innerText="Edit";
@@ -98,8 +98,8 @@ var editTask=function(){
         editBtn.innerText="Save";
     }
 
-    //toggle .edit-mode on the parent.
-    listItem.classList.toggle("edit-mode");
+    //toggle .edited on the parent.
+    listItem.classList.toggle("edited");
 };
 
 
@@ -119,7 +119,7 @@ var deleteTask=function(){
 var taskCompleted=function(){
     console.log("Complete Task...");
 
-    //Append the task list item to the #completed-tasks
+    //Append the task list item to the .completed-tasks
     var listItem=this.parentNode;
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
@@ -131,7 +131,7 @@ var taskIncomplete=function(){
     console.log("Incomplete Task...");
 //Mark task as incomplete.
     //When the checkbox is unchecked
-    //Append the task list item to the #todo-tasks.
+    //Append the task list item to the .todo-tasks.
     var listItem=this.parentNode;
     todoTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
