@@ -10,7 +10,7 @@
   display: block;
   text-align: right;
 }
-.header img {
+.header .pic {
   width: 100%;
 }
 .header__more-inf {
@@ -124,7 +124,7 @@
 .tasks-item > .input-text {
   width: 226px;
 }
-.delete-btn img {
+.delete-btn .pic {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
